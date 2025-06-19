@@ -1,0 +1,45 @@
+import java.util.*;
+class Person
+{
+    String Name;
+//    int EmpolymentId;
+    int age;
+    String city;
+    String District;
+}
+class Employee extends Person
+{
+    int EmployeeId;
+    int Salary;
+    Employee(String Name,int Age,String City,String District,int Employee, int Salary)
+    {
+        this.EmployeeId=Employee;
+        this.Salary=Salary;
+        super.Name=Name;
+        super.age = Age;
+        super.city=City;
+        super.District=District;
+    }
+    public void display()
+    {
+        System.out.println(EmployeeId);
+        System.out.println(Name);
+        System.out.println(age);
+        System.out.println(city);
+        System.out.println(District);
+        System.out.println(Salary);
+    }
+}
+public class Inheritance_SuperKeywordUtilising {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String name = sc.next();
+        String city = sc.next();
+        String District = sc.next();
+        int age = sc.nextInt();
+        int EmployeeId = sc.nextInt();
+        int Salary = sc.nextInt();
+        Employee employee = new Employee(name,age,city,District,EmployeeId,Salary);
+        employee.display();
+    }
+}
