@@ -1,0 +1,30 @@
+import java.util.*;
+class Vehicle
+{
+    String brand;
+    int speed;
+}
+class Car extends Vehicle
+{
+    String fuelType;
+    Car(String brand,int speed,String fuelType)
+    {
+        this.fuelType=fuelType;
+        super.brand=brand;
+        super.speed=speed;
+    }
+    public void displayDetails()
+    {
+        System.out.println("The Brand Name is: "+super.brand+"\nThe Speed of the Car is: "+super.speed+"\nThe FuelType of the Vehicle is: "+fuelType);
+    }
+}
+public class SingleInheritence_Pro1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String brand = sc.next();
+        int speed = sc.nextInt();
+        String fuel = sc.next();
+        Car car = new Car(brand,speed,fuel);
+        car.displayDetails();
+    }
+}
