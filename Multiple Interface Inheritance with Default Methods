@@ -1,0 +1,37 @@
+interface AB
+{
+    default void show()
+    {
+        System.out.println("Interface_1 Printing");
+    }
+}
+interface BB
+{
+    default void show()
+    {
+        System.out.println("Interface_2 Printing");
+    }
+}
+interface  BC
+{
+    default void show()
+    {
+        System.out.println("Interface_3 Printing");
+    }
+}
+class CB implements AB,BB,BC
+{
+    public void show()
+    {
+        AB.super.show();
+        BB.super.show();
+        BC.super.show();
+    }
+}
+public class Multiple_Inheritance
+{
+    public static void main(String[] args) {
+        CB c = new CB();
+        c.show();
+    }
+}
