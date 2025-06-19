@@ -1,0 +1,39 @@
+class A
+{
+    A()
+    {
+        System.out.println("A Constructor is Called.");
+    }
+}
+class B extends A
+{
+    B()
+    {
+        super();
+        System.out.println("B Constructor is Called..");
+    }
+}
+class C extends B
+{
+    C()
+    {
+        super();
+        System.out.println("C Constructor is Called...");
+    }
+
+}
+class D extends C
+{
+    D()
+    {
+        super();
+        System.out.println("D Constructed is Called....");
+    }
+}
+public class Constructor_Inheritance
+{
+    public static void main(String[] args)
+    {
+        D d = new D();
+    }
+}
