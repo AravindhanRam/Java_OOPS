@@ -1,0 +1,33 @@
+import java.util.*;
+class Animal
+{
+    public void makeSound()
+    {
+        System.out.print("The Animal made the sound ");
+    }
+}
+class Dog extends Animal
+{
+    public void makeSound()
+    {
+        super.makeSound();
+        System.out.println("WoW WoW By Dogs");
+    }
+}
+class Cat extends Animal
+{
+    public void makeSound()
+    {
+        super.makeSound();
+        System.out.println("Meow Meow By Cats");
+    }
+}
+public class Inheritence_Method_Overriding
+{
+    public static void main(String[] args) {
+        Cat cat = new Cat();
+        cat.makeSound();
+        Dog dog=new Dog();
+        dog.makeSound();
+    }
+}
