@@ -1,0 +1,60 @@
+import java.util.*;
+abstract class Employe
+{
+    String Name;
+    int EmpId;
+    Employe(String name,int EmpId)
+    {
+        this.Name=name;
+        this.EmpId=EmpId;
+    }
+    abstract void calculateSalary();
+}
+class FulltimeEmployee extends Employe
+{
+    double salary;
+    FulltimeEmployee(String name,int EmpId,double MonthlySalary)
+    {
+        super(name,EmpId);
+        this.salary=MonthlySalary;
+    }
+    @Override
+    void calculateSalary()
+    {
+        System.out.println("The Name of the Full Time Employee is: "+Name);
+        System.out.println("The Employee Id is: "+EmpId);
+        System.out.println("Full Time Employee's Salary is: "+salary);
+    }
+}
+class PartTimeEmployee extends Employe
+{
+    double salary;
+
+    PartTimeEmployee(String Name,int EmpId, double Salary, int hrs)
+    {
+        super(Name,EmpId);
+        this.salary=Salary*hrs;
+    }
+
+    @Override
+    void calculateSalary() {
+        System.out.println("The Name of the Part Time Employee is: "+Name);
+        System.out.println("The Employee Id is: "+EmpId);
+        System.out.println("Part Time Employee's Salary is: "+salary);
+    }
+}
+public class Inheritance_Using_AbstractMethod
+{
+    public static void main(String[] args)
+    {
+        Scanner scanner = new Scanner(System.in);
+        String name = scanner.next();
+        int EmpId = scanner.nextInt();
+        double Salary = scanner.nextDouble();
+        int hrs = scanner.nextInt();
+        FulltimeEmployee employee =new FulltimeEmployee(name,EmpId,Salary);
+        employee.calculateSalary();
+        PartTimeEmployee partTimeEmployee=new PartTimeEmployee(name,EmpId,Salary,hrs);
+        partTimeEmployee.calculateSalary();
+    }
+}
