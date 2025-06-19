@@ -1,0 +1,71 @@
+import java.util.*;
+class University
+{
+    String universityName;
+    String Location;
+    University(String A, String B)
+    {
+        this.universityName=A;
+        this.Location=B;
+    }
+    public void Display()
+    {
+        System.out.println("University Name: "+universityName);
+        System.out.println("Location : "+Location);
+    }
+}
+class College extends University
+{
+    String CollegeName;
+    String CollegeCode;
+    College(String Uni,String Loc,String CollN,String CollC)
+    {
+        super(Uni,Loc);
+        this.CollegeName=CollN;
+        this.CollegeCode=CollC;
+    }
+    @Override
+    public void Display()
+    {
+        super.Display();
+        System.out.println("College Name: "+CollegeName);
+        System.out.println("College Code: "+CollegeCode);
+    }
+}
+class Department extends College
+{
+    String Dep;
+    String HODName;
+    int Strength;
+    Department(String Uni,String Loc,String ColN,String ColC,String Dep,String HODN,int str)
+    {
+        super(Uni,Loc,ColN,ColC);
+        this.Dep=Dep;
+        this.HODName=HODN;
+        this.Strength=str;
+    }
+
+    @Override
+    public void Display() {
+        super.Display();
+        System.out.println("Department Name: "+Dep);
+        System.out.println("HOD Name: "+HODName);
+        System.out.println("Strength: "+Strength);
+    }
+}
+public class Multi_Inheritance
+{
+    public static void main(String[] args)
+    {
+        Scanner scanner = new Scanner(System.in);
+        String Uni = scanner.next();
+        String Loc = scanner.next();
+        String ColN= scanner.next();
+        String ColC = scanner.next();
+        String Dep  = scanner.next();
+        String HODN = scanner.next();
+        int Str = scanner.nextInt();
+        Department department = new Department(Uni,Loc,ColN,ColC,Dep,HODN,Str);
+        department.Display();
+    }
+}
