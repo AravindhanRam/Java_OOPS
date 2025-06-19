@@ -1,0 +1,64 @@
+import java.util.*;
+class BankAccount
+{
+    int AccountNumber;
+    double Balance;
+    BankAccount(int Account, double Balance)
+    {
+        this.AccountNumber=Account;
+        this.Balance=Balance;
+    }
+    void display()
+    {
+        System.out.println("Your Account Number is: "+AccountNumber);
+        System.out.println("Your Bank Balance is: "+Balance);
+    }
+}
+class SavingAccount extends BankAccount
+{
+    double Min_Bal;
+    SavingAccount(int Account,double Balance, double Min_Bal)
+    {
+        super(Account,Balance);
+        this.Min_Bal=Min_Bal;
+    }
+    @Override
+    void display() {
+        super.display();
+        System.out.println("........Details About Your Saving Accounts......");
+        System.out.println("Your Account's Minimum Balance that you need to maintain by You is: " + Min_Bal);
+        System.out.println("Your Withdraw Limit Ranges from 1 to " + (Balance - Min_Bal));
+    }
+}
+class CurrentAccount extends BankAccount
+{
+    double OverDraftLimit;
+    CurrentAccount(int Account,double Balance,double OverDraft)
+    {
+        super(Account,Balance);
+        this.OverDraftLimit=OverDraft;
+    }
+    @Override
+    void display()
+    {
+        super.display();
+        System.out.println("....... Details About Your Saving Accounts ........");
+        System.out.println("Your Account's Minimum OverDraft Limit that You maintain within 50000");
+        System.out.println("Your Account's Current OverDraft is: "+OverDraftLimit);
+    }
+}
+public class Inheritance_Polymorphism_BasicBankPro
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int Account = sc.nextInt();
+        double Balance = sc.nextDouble();
+        double Min_Bal = sc.nextDouble();
+        double OverDraft = sc.nextDouble();
+        CurrentAccount currentAccount = new CurrentAccount(Account,Balance,OverDraft);
+        SavingAccount savingAccount = new SavingAccount(Account,Balance,Min_Bal);
+        savingAccount.display();
+        currentAccount.display();
+    }
+}
