@@ -1,0 +1,52 @@
+import java.util.*;
+class Shape
+{
+    public void area()
+    {
+        System.out.println("Started Calculating Area........");
+    }
+}
+class Rectangle extends Shape
+{
+    double length;
+    double height;
+    Rectangle(double len, double hei)
+    {
+        this.height=hei;
+        this.length = len;
+    }
+    @Override
+    public void area()
+    {
+        super.area();
+        System.out.println("Area of the Rectangle is : "+(length*height));
+    }
+}
+class Circle extends Shape
+{
+    double radius;
+    Circle(double Rad)
+    {
+        this.radius=Rad;
+    }
+
+    @Override
+    public void area() {
+        super.area();
+        System.out.println("Area of the Circle: "+(2*Math.PI*radius*radius));
+    }
+}
+public class Hierarchical_Inheritance
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        double l = sc.nextDouble();
+        double h = sc.nextDouble();
+        double rad = sc.nextDouble();
+        Rectangle rectangle =new Rectangle(l,h);
+        rectangle.area();
+        Circle circle = new Circle(rad);
+        circle.area();
+    }
+}
