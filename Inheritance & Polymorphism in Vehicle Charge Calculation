@@ -1,0 +1,88 @@
+import java.util.*;
+class Vehicle
+{
+    String vehicleNumber;
+    String ownerName;
+    double baseCharge;
+    Vehicle(String Vehicle,String Owner,double Base)
+    {
+        this.vehicleNumber=Vehicle;
+        this.ownerName=Owner;
+        this.baseCharge=Base;
+    }
+    void calculateCharge()
+    {
+        System.out.println(".....Calculating the Charges for your Vehicle......");
+        System.out.println("The Owner of the Vehicle Number: "+vehicleNumber+" is: "+ownerName);
+    }
+}
+class Car extends Vehicle
+{
+    int seatingCapacity;
+    String fuel;
+    Car(String Vehicle,String Owner,double Base, int seat,String fuel)
+    {
+        super(Vehicle,Owner,Base);
+        this.seatingCapacity=seat;
+        this.fuel=fuel;
+    }
+    @Override
+    void calculateCharge()
+    {
+        super.calculateCharge();
+        double Value = baseCharge + seatingCapacity*100;
+        System.out.println("The Charge for Your Car is: "+Value);
+    }
+}
+class Truck extends Vehicle
+{
+    double loadCapacity;
+    Truck(String Vehicle,String Owner,double Base,double load)
+    {
+        super(Vehicle,Owner,Base);
+        this.loadCapacity=load;
+    }
+    @Override
+    void calculateCharge()
+    {
+        super.calculateCharge();
+        double Value = baseCharge+loadCapacity*500;
+        System.out.println("The Charge for Your Vehicle is: "+Value);
+    }
+}
+class Bike extends Vehicle
+{
+    int engineCC;
+    Bike(String Vehicle,String Owner,double Base,int engine)
+    {
+        super(Vehicle,Owner,Base);
+        this.engineCC=engine;
+    }
+
+    @Override
+    void calculateCharge() {
+        super.calculateCharge();
+        double Value = baseCharge+engineCC*0.2;
+        System.out.println("The Charge for Your Two Wheeler is: "+Value);
+    }
+}
+public class Inheritance_Polymorphism_BasicVehicleInfo
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        String num = sc.next();
+        String owner = sc.next();
+        Double base = sc.nextDouble();
+        int seat = sc.nextInt();
+        String fuel = sc.next();
+        double load = sc.nextDouble();
+        int engine = sc.nextInt();
+        Car car = new Car(num,owner,base,seat,fuel);
+        car.calculateCharge();
+        Truck truck = new Truck(num,owner,base,load);
+        truck.calculateCharge();
+        Bike bike=new Bike(num,owner,base,engine);
+        bike.calculateCharge();
+    }
+}
